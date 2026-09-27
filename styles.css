@@ -266,6 +266,56 @@ img {
   line-height: 1.65;
 }
 
+.hero-enlistment {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: auto;
+  max-width: min(460px, 100%);
+  margin: 0 0 22px;
+  padding: 10px 13px;
+  color: var(--white);
+  background: linear-gradient(90deg, rgba(216, 25, 47, 0.92), rgba(7, 24, 90, 0.58));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(216, 25, 47, 0.22);
+  animation: focusGlow 2.6s ease-in-out infinite;
+}
+
+.hero-enlistment-logos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.hero-enlistment-logos img {
+  width: 34px;
+  height: 34px;
+  padding: 3px;
+  object-fit: contain;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.hero-enlistment-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.hero-enlistment-copy small {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 11px;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero-enlistment strong {
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.1;
+}
+
 .hero-actions,
 .contact-actions {
   display: flex;
@@ -481,6 +531,106 @@ img {
 
 .about-tags i {
   color: var(--red);
+}
+
+.enlistment-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: center;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 28px;
+  padding: 26px;
+  color: var(--white);
+  background:
+    linear-gradient(120deg, rgba(7, 24, 90, 0.96), rgba(11, 42, 114, 0.9)),
+    url("images/section-maritime-bg.png") center / cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.enlistment-copy h3 {
+  margin: 10px 0 12px;
+  color: var(--white);
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.14;
+}
+
+.enlistment-copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.7;
+}
+
+.enlistment-links {
+  display: grid;
+  gap: 14px;
+}
+
+.enlistment-card {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.12);
+  transform: translateX(0);
+  animation: enlistSlide 0.9s ease both;
+}
+
+.enlistment-card:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.enlistment-card:hover {
+  transform: translateX(6px);
+}
+
+.enlistment-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 25px;
+}
+
+.enlistment-icon img {
+  width: 48px;
+  height: 48px;
+  padding: 3px;
+  object-fit: contain;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.enlistment-icon.navy {
+  background: linear-gradient(135deg, var(--navy), #0096d6);
+}
+
+.enlistment-icon.army {
+  background: linear-gradient(135deg, #16391e, var(--red));
+}
+
+.enlistment-card strong,
+.enlistment-card small {
+  display: block;
+}
+
+.enlistment-card strong {
+  font-size: 18px;
+}
+
+.enlistment-card small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.45;
 }
 
 .mission-grid {
@@ -1075,6 +1225,29 @@ img {
   }
 }
 
+@keyframes focusGlow {
+  0%,
+  100% {
+    box-shadow: 0 18px 42px rgba(216, 25, 47, 0.22);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 22px 58px rgba(216, 25, 47, 0.42);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes enlistSlide {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 1100px) {
   .nav-links {
     gap: 14px;
@@ -1189,6 +1362,7 @@ img {
   .mission-grid,
   .stats-band,
   .experience-strip,
+  .enlistment-panel,
   .contact-panel,
   .footer-grid {
     grid-template-columns: 1fr;
